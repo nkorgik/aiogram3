@@ -1,0 +1,141 @@
+# ===========================
+#   PYTHON
+# ===========================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.Env/
+
+# Distribution / packaging
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# pip / poetry
+pip-log.txt
+pip-delete-this-directory.txt
+poetry.lock
+.poetry/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytype/
+.mypy_cache/
+
+# Django / Flask / other frameworks
+*.log
+local_settings.py
+db.sqlite3
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+.jupyter/
+
+# dotenv
+.env
+.env.*
+!.env.example
+
+# ===========================
+#   NODE.JS
+# ===========================
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build / production output
+dist/
+build/
+.cache/
+.next/
+.nuxt/
+out/
+storybook-static/
+
+# TypeScript
+*.tsbuildinfo
+
+# Svelte/Vite/Parcel/Rollup
+.vite/
+vite.config.ts.timestamp*
+.parcel-cache/
+rollup.cache
+
+# Expo / React Native
+.expo/
+.expo-shared/
+android/
+ios/
+*.apk
+*.aab
+
+# ===========================
+#   GENERAL
+# ===========================
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & temp
+*.log
+logs/
+tmp/
+temp/
+
+# Local tooling
+pytest.ini
+*.pem
+*.key
+*.crt
+
+# Docker
+docker-compose.override.yml
+*.pid
