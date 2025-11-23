@@ -11,6 +11,7 @@ main_menu = ReplyKeyboardMarkup(
         [
             KeyboardButton(text="👋 Hello"),
             KeyboardButton(text="ℹ️ Help"),
+            KeyboardButton(text="🔢 Counter"),
         ]
     ],
     resize_keyboard=True,
@@ -22,7 +23,6 @@ def get_counter_keyboard(value: int = 0) -> InlineKeyboardMarkup:
         inline_keyboard=[
             [
                 InlineKeyboardButton(text="➖", callback_data="decrement"),
-                InlineKeyboardButton(text=str(value), callback_data="ignore"),
                 InlineKeyboardButton(text="➕", callback_data="increment"),
             ]
         ]
