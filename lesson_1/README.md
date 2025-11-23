@@ -1,5 +1,7 @@
 # Lesson 1 – Minimal Aiogram 3 Bot
 
+[Watch the tutorial on YouTube](https://www.youtube.com/@python-javascript/videos)
+
 This folder holds the tiniest possible Aiogram 3 project for the YouTube walkthrough.  
 The bot connects to Telegram and replies to `/start` – nothing else.
 
