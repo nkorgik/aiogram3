@@ -15,5 +15,5 @@ async def handle_start(message: Message) -> None:
 @router.message(Command("help"))
 async def handle_help(message: Message) -> None:
     """Reply with a help message."""
-    await message.answer("ℹ️ This is a help message. Send /start to get a greeting.")
+    await message.answer("ℹ️ This is a <b>help</b> message.\nSend <code>/start</code> to get a greeting.")
 
