@@ -7,6 +7,9 @@ from database import init_db
 from handlers import router
 from services import check_alerts
 
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
+
 # Load environment variables
 load_dotenv()
 
@@ -18,7 +21,7 @@ async def main():
         logging.error("BOT_TOKEN not found in environment variables.")
         return
 
-    bot = Bot(token=token, parse_mode="HTML")
+    bot = Bot(token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     dp = Dispatcher()
     dp.include_router(router)
 
