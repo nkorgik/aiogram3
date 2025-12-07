@@ -1,0 +1,13 @@
+[project]
+name = "crypto-alerts-bot-v1"
+version = "0.1.0"
+description = "Telegram crypto price watchman bot with visual dashboard and config-over-code architecture."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.22.0",
+    "aiohttp>=3.12.15",
+    "aiosqlite>=0.21.0",
+    "python-dotenv>=1.2.1",
+]
+
