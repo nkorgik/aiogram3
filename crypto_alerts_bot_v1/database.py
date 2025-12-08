@@ -74,3 +74,14 @@ async def count_alerts_for_user(user_id: int) -> int:
             row = await cursor.fetchone()
             return int(row[0]) if row and row[0] is not None else 0
 
+
+async def delete_alerts_for_user(user_id: int) -> int:
+    """Delete all alerts for a specific user. Returns number of removed rows."""
+    async with aiosqlite.connect(config.db_name) as db:
+        cursor = await db.execute(
+            "DELETE FROM alerts WHERE user_id = ?",
+            (user_id,),
+        )
+        await db.commit()
+        return cursor.rowcount or 0
+
