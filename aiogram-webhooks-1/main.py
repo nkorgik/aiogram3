@@ -8,9 +8,9 @@ from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_applicati
 
 from config import Settings
 from handlers.common import router as common_router
-from middlewares.gemini import GeminiMiddleware
-from middlewares.throttle import InFlightThrottle
+from middlewares import GeminiMiddleware, InFlightThrottle, PollingLogMiddleware
 from services.gemini import GeminiService
+from services.logging_session import LoggingAiohttpSession
 
 
 async def main() -> None:
@@ -27,6 +27,7 @@ async def main() -> None:
     bot = Bot(
         token=settings.bot_token,
         default=DefaultBotProperties(parse_mode=ParseMode.HTML),
+        session=LoggingAiohttpSession(timeout=25),
     )
 
     async def on_shutdown(bot: Bot) -> None:
@@ -64,8 +65,15 @@ async def main() -> None:
 
         await asyncio.Event().wait()
     else:
+        # Turn on verbose logging to surface polling HTTP calls and updates
+        logging.getLogger().setLevel(logging.DEBUG)
+        logging.getLogger("aiogram").setLevel(logging.DEBUG)
+
+        dp.update.middleware(PollingLogMiddleware())
+        logging.info("Long polling mode: removing any existing webhook")
+        await bot.delete_webhook(drop_pending_updates=True)
         logging.info("Starting long polling (webhook disabled)")
-        await dp.start_polling(bot)
+        await dp.start_polling(bot, polling_timeout=20)
 
 
 if __name__ == "__main__":
