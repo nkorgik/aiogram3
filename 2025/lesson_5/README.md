@@ -17,14 +17,14 @@ Requirements
 
 Setup
 1) Install deps (from repo root):
-   - `cd lesson_5`
+   - `cd 2025/lesson_5`
    - `pip install -e .` (or `pip install -r requirements.txt` if you prefer exporting one)
 2) Environment:
    - Copy `.env` from the lesson folder (do not commit it).
    - Set `BOT_TOKEN=<your_telegram_bot_token>`.
 
 Run
-- From repo root: `python lesson_5/main.py`
+- From repo root: `python 2025/lesson_5/main.py`
 - The bot starts polling and also launches a background task that checks alerts every minute.
 
 Usage
