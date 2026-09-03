@@ -1,8 +1,9 @@
 from app.domain.models import User
 from app.domain.unit_of_work import UnitOfWork
+from app.services.contracts import UserServiceContract
 
 
-class UserService:
+class UserService(UserServiceContract):
     def __init__(self, uow: UnitOfWork) -> None:
         self.uow = uow
 

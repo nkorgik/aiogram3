@@ -1,11 +1,14 @@
 from functools import lru_cache
 
+from typing import Optional
+
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     bot_token: str = Field(..., alias="BOT_TOKEN")
+    database_url: Optional[str] = Field(None, alias="DATABASE_URL")
     db_host: str = Field("localhost", alias="DB_HOST")
     db_port: int = Field(5432, alias="DB_PORT")
     db_user: str = Field("postgres", alias="DB_USER")

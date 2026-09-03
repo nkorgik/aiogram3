@@ -3,10 +3,11 @@ from typing import Sequence
 
 from app.domain.models import Expense, User
 from app.domain.unit_of_work import UnitOfWork
+from app.services.contracts import ExpenseServiceContract
 from .dto import CategoryTotal, ExpensePayload
 
 
-class ExpenseService:
+class ExpenseService(ExpenseServiceContract):
     def __init__(self, uow: UnitOfWork) -> None:
         self.uow = uow
 

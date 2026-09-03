@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.domain.unit_of_work import UnitOfWork
+from app.infrastructure.db.session import AsyncSessionFactoryCallable
 from app.infrastructure.repositories import (
     SqlAlchemyExpenseRepository,
     SqlAlchemyUserRepository,
@@ -10,7 +11,7 @@ from app.infrastructure.repositories import (
 
 
 class SqlAlchemyUnitOfWork(UnitOfWork):
-    def __init__(self, session_factory: async_sessionmaker[AsyncSession]) -> None:
+    def __init__(self, session_factory: AsyncSessionFactoryCallable) -> None:
         self._session_factory = session_factory
         self.session: AsyncSession | None = None
         self.users: SqlAlchemyUserRepository

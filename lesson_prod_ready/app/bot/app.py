@@ -5,8 +5,8 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 from app.bot import register_routers
+from app.bot.config import Settings, get_settings
 from app.bot.middlewares import UnitOfWorkMiddleware
-from app.config import Settings, get_settings
 from app.domain.unit_of_work import UnitOfWorkFactory
 
 

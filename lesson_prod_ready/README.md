@@ -3,14 +3,14 @@
 Async Telegram bot with aiogram 3, classical SQLAlchemy mappers (no declarative/active record), repository + unit-of-work, and Dockerized Postgres 17.
 
 ### Project layout
-- `main.py` — app entrypoint, wires dependencies and starts polling
-- `app/config.py` — env-based settings loader
+- `main.py` — thin root entrypoint calling `app.main.run`
+- `app/main.py` — async runner wiring DB + bot
+- `app/bot/config.py` — env-based settings loader
 - `app/domain` — domain entities (`User`, `Expense`) + repository/UoW abstractions
 - `app/infrastructure/db` — tables, mappers, session factory, DB URL helper
 - `app/infrastructure/` — SQLAlchemy repository and unit-of-work implementations
 - `app/services` — business logic + service contracts
-- `app/bot` — routers, middlewares, keyboards
-- `app/app.py` — builds dispatcher/bot wiring with UoW middleware
+- `app/bot` — routers, middlewares, keyboards, dispatcher/bot builder
 - `Dockerfile`, `docker-compose.yml` — container setup with Postgres 17
 
 ### Commands

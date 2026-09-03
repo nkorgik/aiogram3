@@ -1,11 +1,13 @@
 from .mappers import start_mappers
-from .session import create_engine, create_schema, create_session_factory
-from .url import build_async_url
+from .session import AsyncSessionFactory, AsyncSessionFactoryCallable, build_session_factory, create_schema
+from .url import build_async_url, resolve_asyncpg_connection_options
 
 __all__ = [
     "start_mappers",
-    "create_engine",
+    "AsyncSessionFactory",
+    "AsyncSessionFactoryCallable",
+    "build_session_factory",
     "create_schema",
-    "create_session_factory",
     "build_async_url",
+    "resolve_asyncpg_connection_options",
 ]
